@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 import 'package:gbblogging/libraries/intl_helper/intl_helper.extension.dart';
@@ -21,7 +23,18 @@ class _SplashViewState extends State<SplashView> {
         child: Stack(
           children: [
             Center(child: _logoImage(_mediaQuery)),
-            _textPositioned(_mediaQuery),
+            FutureBuilder(
+              future: IntlHelper.configuration(
+                assetsPath: 'lib/libraries/common/assets/lang',
+                selectedLanguage: Platform.localeName,
+              ),
+              builder: (BuildContext _, AsyncSnapshot snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting)
+                  return Center(child: CircularProgressIndicator());
+
+                return _textPositioned(_mediaQuery);
+              },
+            ),
           ],
         ),
       ),
