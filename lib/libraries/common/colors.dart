@@ -13,5 +13,6 @@ const MaterialColor primaryColor =
 const MaterialColor secondaryColor =
     const MaterialColor(0xFFE5E5DE, const <int, Color>{
   100: const Color(0xFFE5E5DE),
-  200: const Color(0xFFEE0202),
+  200: const Color(0xFFD4D4D4),
+  300: const Color(0xFFEE0202),
 });
