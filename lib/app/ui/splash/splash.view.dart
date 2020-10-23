@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
+import 'package:gbblogging/libraries/common/constants.dart';
 import 'package:gbblogging/libraries/intl_helper/intl_helper.extension.dart';
 import 'package:gbblogging/libraries/media_query/media_query_tools.dart';
 
@@ -50,10 +51,7 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Widget _logoImage(MediaQueryTools mediaQuery) {
-    return Image.asset(
-      'lib/libraries/common/assets/images/boti-blogging-logo.png',
-      width: mediaQuery.width(200),
-    );
+    return Image.asset(BOTI_LOGO_NAME, width: mediaQuery.width(200));
   }
 
   Widget _textPositioned(MediaQueryTools mediaQuery) {
