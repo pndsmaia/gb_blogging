@@ -29,8 +29,9 @@ class MediaQueryTools {
 
   double get getHeight => _mediaQuery.size.height;
 
-  double avaliableHeight(double appBarHeight) =>
-      _mediaQuery.size.height - appBarHeight;
+  double avaliableHeight(double appBarHeight) {
+    return getHeight - appBarHeight;
+  }
 
   double height(double height) {
     double percent = (((height * 100) / defaultValues.height) / 100);

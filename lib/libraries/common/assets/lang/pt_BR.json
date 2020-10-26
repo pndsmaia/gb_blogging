@@ -2,5 +2,15 @@
     "BOTI_NEWS": "Boti news",
     "BOTI_COMMUNITY": "Comunidade",
     "DEV_EMAIL": "philipensmaia@gmail.com",
-    "DEV_NAME": "Philipe Maia"
+    "DEV_NAME": "Philipe Maia",
+    "EMAIL": "Email",
+    "EMAIL_ERROR": "Por favor, preencha o campo com um email válido.",
+    "FIELD_ERROR": "Por favor, preencha o campo",
+    "NAME": "Nome",
+    "PASSWORD": "Senha",
+    "PASSWORD_ERROR": "Por favor, preencha o campo com uma senha válida.",
+    "REGISTER": "Cadastro",
+    "RE_PASSWORD": "Repita a senha",
+    "SIGN_IN": "Entrar",
+    "SIGN_UP": "Já possui cadastro? Cadastre Agora!"
 }
