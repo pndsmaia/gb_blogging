@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget _appBar(MediaQueryTools mediaQuery) {
     return SliverAppBar(
-      automaticallyImplyLeading: true,
+      automaticallyImplyLeading: false,
       primary: true,
       floating: true,
       snap: true,

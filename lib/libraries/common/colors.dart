@@ -10,6 +10,22 @@ const MaterialColor primaryColor =
   600: const Color(0xFF000000),
 });
 
+const MaterialColor primaryAcoColor =
+    const MaterialColor(0xFF96958C, const <int, Color>{
+  100: const Color(0xFFFFFFFF),
+  200: const Color(0xFFF4F4F0),
+  300: const Color(0xFFE6E5DE),
+  400: const Color(0xFFCFCFC3),
+  500: const Color(0xFFB4B3A8),
+  600: const Color(0xFF96958C),
+  700: const Color(0xFF807F76),
+  800: const Color(0xFF5F5E57),
+  900: const Color(0xFF464641),
+  1100: const Color(0xFF2D2C2A),
+  1200: const Color(0xFF1A1918),
+  1300: const Color(0xFF000000),
+});
+
 const MaterialColor secondaryColor =
     const MaterialColor(0xFFE5E5DE, const <int, Color>{
   100: const Color(0xFFE5E5DE),

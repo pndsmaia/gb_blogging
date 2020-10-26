@@ -16,7 +16,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3))
-        .then((value) => Modular.to.pushReplacementNamed('/home'));
+        .then((value) => Modular.to.pushReplacementNamed('/login'));
     super.initState();
   }
 
