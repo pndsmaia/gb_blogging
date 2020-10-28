@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gbblogging/app/app.viewmodel.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 import 'package:gbblogging/libraries/common/constants.dart';
 import 'package:gbblogging/libraries/intl_helper/intl_helper.extension.dart';
@@ -13,10 +14,17 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  final AppViewModel _viewmodel = Modular.get();
+
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3))
-        .then((value) => Modular.to.pushReplacementNamed('/login'));
+    Future.delayed(Duration(seconds: 3)).then((value) async {
+      if (await _viewmodel.isUserLogged) {
+        Modular.to.pushReplacementNamed('/home');
+      } else {
+        Modular.to.pushReplacementNamed('/login');
+      }
+    });
     super.initState();
   }
 

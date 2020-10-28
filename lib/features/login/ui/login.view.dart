@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gbblogging/features/login/ui/login.viewmodel.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 import 'package:gbblogging/libraries/common/constants.dart';
 import 'package:gbblogging/libraries/common/widgets/flat_button.widget.dart';
@@ -14,6 +15,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final LoginViewmodel _viewmodel = Modular.get();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -91,9 +93,14 @@ class _LoginViewState extends State<LoginView> {
       margin: EdgeInsets.only(top: mediaQuery.height(50)),
       child: RaisedButtonBoti(
         label: IntlHelper.i18n(key: 'SIGN_IN'),
-        onPressed: () {
+        onPressed: () async {
           if (_formKey.currentState.validate()) {
-            Modular.to.pushReplacementNamed('/login/home');
+            if (await _viewmodel.signIn(
+              email: _emailController.text,
+              password: _passwordController.text,
+            )) {
+              Modular.to.pushReplacementNamed('/login/home');
+            }
           }
         },
       ),

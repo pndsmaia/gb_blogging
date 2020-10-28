@@ -5,6 +5,7 @@ import 'package:gbblogging/features/home/ui/home.viewmodel.dart';
 import 'package:gbblogging/features/home/usecase/get_boti_news.usecase.dart';
 import 'package:gbblogging/libraries/common/constants.dart';
 import 'package:gbblogging/libraries/network/network.repository.dart';
+import 'package:gbblogging/libraries/sessao/usecase/sign_out.usecase.dart';
 
 import '../ui/home.view.dart';
 
@@ -15,6 +16,7 @@ class HomeModule extends ChildModule {
 
   List<Bind> usecases = [
     Bind<GetBotiNewsUsecase>((i) => GetBotiNewsUsecase()),
+    Bind<SignOutUsecase>((i) => SignOutUsecase()),
   ];
 
   List<Bind> repositories = [
@@ -27,7 +29,10 @@ class HomeModule extends ChildModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter(Modular.initialRoute, child: (_, args) => HomeView(), transition: TransitionType.fadeIn, duration: Duration(milliseconds: 500)),
+        ModularRouter(Modular.initialRoute,
+            child: (_, args) => HomeView(),
+            transition: TransitionType.fadeIn,
+            duration: Duration(milliseconds: 500)),
       ];
 
   static Inject get to => Inject<HomeModule>.of();

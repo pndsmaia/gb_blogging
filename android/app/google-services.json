@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "71900860053",
+    "firebase_url": "https://gb-blogging.firebaseio.com",
+    "project_id": "gb-blogging",
+    "storage_bucket": "gb-blogging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71900860053:android:8f293d1870c6578e14159c",
+        "android_client_info": {
+          "package_name": "com.philm.gbblogging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71900860053-4tesudjoifr1nie4piqfi0p080b4op54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALZtv2Z4s7y7Vtbvt_gVOUHl_lvS-tAbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71900860053-4tesudjoifr1nie4piqfi0p080b4op54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

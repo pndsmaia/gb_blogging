@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gbblogging/features/login/ui/sign_up/sign_up.viewmodel.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 import 'package:gbblogging/libraries/common/constants.dart';
 import 'package:gbblogging/libraries/common/widgets/raised_button.widget.dart';
@@ -13,6 +14,7 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
+  final SignUpViewmodel _viewmodel = Modular.get();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -99,7 +101,9 @@ class _SignUpViewState extends State<SignUpView> {
                 keyboardType: TextInputType.emailAddress,
                 obscureText: true,
                 validator: (text) {
-                  if (text.isEmpty || text.length < 6)
+                  if (text.isEmpty ||
+                      text.length < 6 ||
+                      text != _passwordController.text)
                     return IntlHelper.i18n(key: 'PASSWORD_ERROR');
                   return null;
                 },
@@ -111,7 +115,9 @@ class _SignUpViewState extends State<SignUpView> {
               keyboardType: TextInputType.emailAddress,
               obscureText: true,
               validator: (text) {
-                if (text != _passwordController.text)
+                if (text.isEmpty ||
+                    text.length < 6 ||
+                    text != _passwordController.text)
                   return IntlHelper.i18n(key: 'PASSWORD_ERROR');
                 return null;
               },
@@ -128,9 +134,18 @@ class _SignUpViewState extends State<SignUpView> {
           top: mediaQuery.height(50), bottom: mediaQuery.height(50)),
       child: RaisedButtonBoti(
         label: IntlHelper.i18n(key: 'REGISTER'),
-        onPressed: () {
+        onPressed: () async {
           if (_formKey.currentState.validate()) {
-            Modular.to.pushReplacementNamed('/login/home');
+            _viewmodel.setUserModel(
+              name: _nameController.text,
+              email: _emailController.text,
+              pass: _passwordController.text,
+            );
+            if (await _viewmodel.signUp()) {
+              Modular.to.pushReplacementNamed('/login/home');
+            } else {
+              print('erro cadastro');
+            }
           }
         },
       ),

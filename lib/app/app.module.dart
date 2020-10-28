@@ -5,14 +5,24 @@ import 'package:gbblogging/app/app.widget.dart';
 import 'package:gbblogging/app/ui/splash/splash.view.dart';
 import 'package:gbblogging/features/home/modules/home.module.dart';
 import 'package:gbblogging/features/login/modules/login.module.dart';
+import 'package:gbblogging/libraries/sessao/data/session.repository.dart';
+import 'package:gbblogging/libraries/sessao/usecase/get_local_user.usecase.dart';
 
 class AppModule extends MainModule {
   List<Bind> viewmodels = [
     Bind<AppViewModel>((i) => AppViewModel()),
   ];
 
+  List<Bind> repositories = [
+    Bind<SessionRepository>((i) => SessionRepository()),
+  ];
+
+  List<Bind> usecases = [
+    Bind<GetLocalUserUsecase>((i) => GetLocalUserUsecase()),
+  ];
+
   @override
-  List<Bind> get binds => viewmodels;
+  List<Bind> get binds => viewmodels + repositories + usecases;
 
   @override
   List<ModularRouter> get routers => [

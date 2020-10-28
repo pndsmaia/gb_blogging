@@ -4,6 +4,8 @@ import 'package:gbblogging/features/login/ui/login.view.dart';
 import 'package:gbblogging/features/login/ui/login.viewmodel.dart';
 import 'package:gbblogging/features/login/ui/sign_up/sign_up.view.dart';
 import 'package:gbblogging/features/login/ui/sign_up/sign_up.viewmodel.dart';
+import 'package:gbblogging/libraries/sessao/usecase/sign_in.usecase.dart';
+import 'package:gbblogging/libraries/sessao/usecase/sign_up.usecase.dart';
 
 class LoginModule extends ChildModule {
   List<Bind> viewmodels = [
@@ -11,12 +13,13 @@ class LoginModule extends ChildModule {
     Bind<SignUpViewmodel>((i) => SignUpViewmodel()),
   ];
 
-  List<Bind> usecases = [];
-
-  List<Bind> repositories = [];
+  List<Bind> usecases = [
+    Bind<SignInUsecase>((i) => SignInUsecase()),
+    Bind<SignUpUsecase>((i) => SignUpUsecase()),
+  ];
 
   @override
-  List<Bind> get binds => viewmodels + repositories + usecases;
+  List<Bind> get binds => viewmodels + usecases;
 
   @override
   List<ModularRouter> get routers => [

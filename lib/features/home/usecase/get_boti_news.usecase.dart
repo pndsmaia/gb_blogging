@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gbblogging/features/home/data/news.repository.dart';
 import 'package:gbblogging/features/home/model/boti_news.model.dart';
-import 'package:gbblogging/libraries/common/usecase_interface/result.usecase.interface.dart';
+import 'package:gbblogging/libraries/common/usecase_interface/usecases.interface.dart';
 
 class GetBotiNewsUsecase implements IResultUsecase {
   final NewsRepository _newsRepository = Modular.get();

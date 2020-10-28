@@ -2,10 +2,14 @@ import 'dart:convert';
 
 class UserModel {
   UserModel({
+    this.id,
+    this.email,
     this.name,
     this.profilePicture,
   });
 
+  String id;
+  String email;
   String name;
   String profilePicture;
 
@@ -14,12 +18,16 @@ class UserModel {
   String toJson() => json.encode(toMap());
 
   factory UserModel.fromMap(Map<String, dynamic> json) => UserModel(
-        name: json["name"],
-        profilePicture: json["profile_picture"],
+        id: json["id"] ?? '',
+        email: json["email"] ?? '',
+        name: json["name"] ?? '',
+        profilePicture: json["profilePicture"] ?? '',
       );
 
   Map<String, dynamic> toMap() => {
-        "name": name,
-        "profile_picture": profilePicture,
+        "id": id ?? '',
+        "email": email ?? '',
+        "name": name ?? '',
+        "profilePicture": profilePicture ?? '',
       };
 }

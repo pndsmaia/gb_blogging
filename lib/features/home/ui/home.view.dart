@@ -1,5 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gbblogging/features/home/ui/home.viewmodel.dart';
 import 'package:gbblogging/features/home/ui/tabs/botinews/botinews.view.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 import 'package:gbblogging/libraries/intl_helper/intl_helper.extension.dart';
@@ -11,6 +13,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final HomeViewModel _viewModel = Modular.get();
   @override
   void initState() {
     super.initState();
@@ -43,6 +46,14 @@ class _HomeViewState extends State<HomeView> {
       primary: true,
       floating: true,
       snap: true,
+      actions: [
+        IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              if (await _viewModel.signOut())
+                Modular.to.pushReplacementNamed('/login');
+            })
+      ],
       backgroundColor: primaryColor[400],
       title: Image.asset(
           'lib/libraries/common/assets/images/boticario-logo.png',
