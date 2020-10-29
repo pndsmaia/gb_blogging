@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:gbblogging/libraries/sessao/model/user.model.dart';
-import 'package:gbblogging/libraries/sessao/usecase/sign_up.usecase.dart';
+import 'package:gbblogging/libraries/session/model/user.model.dart';
+import 'package:gbblogging/libraries/session/usecase/sign_up.usecase.dart';
 import 'package:mobx/mobx.dart';
 part 'sign_up.viewmodel.g.dart';
 

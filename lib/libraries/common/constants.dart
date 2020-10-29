@@ -7,6 +7,8 @@ const String BOTI_LOGO_NAME =
     'lib/libraries/common/assets/images/boti-blogging-logo.png';
 const String BOTI_LOGO =
     'lib/libraries/common/assets/images/boticario-logo.png';
+const String BOTI_LOGO_URL =
+    'https://firebasestorage.googleapis.com/v0/b/gb-blogging.appspot.com/o/boticario-logo.png?alt=media&token=6389ec80-7278-4d2a-acff-76ddc4ba0f74';
 
 //REGEXP
 // ignore: non_constant_identifier_names

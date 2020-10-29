@@ -5,11 +5,15 @@ import 'package:gbblogging/libraries/media_query/media_query_tools.dart';
 class RaisedButtonBoti extends StatelessWidget {
   final String label;
   final Function onPressed;
+  final double fontSize;
+  final Color color;
 
   const RaisedButtonBoti({
     Key key,
     @required this.label,
     @required this.onPressed,
+    this.fontSize,
+    this.color,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -18,11 +22,12 @@ class RaisedButtonBoti extends StatelessWidget {
       width: double.infinity,
       height: mediaQuery.height(48),
       child: RaisedButton(
-        color: primaryAcoColor[1200],
+        color: color ?? primaryAcoColor[1200],
         child: Text(
           label,
           style: TextStyle(
-              color: primaryColor[100], fontSize: mediaQuery.textScale * 22),
+              color: primaryColor[100],
+              fontSize: fontSize ?? mediaQuery.textScale * 22),
         ),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),

@@ -4,8 +4,8 @@ import 'package:gbblogging/features/login/ui/login.view.dart';
 import 'package:gbblogging/features/login/ui/login.viewmodel.dart';
 import 'package:gbblogging/features/login/ui/sign_up/sign_up.view.dart';
 import 'package:gbblogging/features/login/ui/sign_up/sign_up.viewmodel.dart';
-import 'package:gbblogging/libraries/sessao/usecase/sign_in.usecase.dart';
-import 'package:gbblogging/libraries/sessao/usecase/sign_up.usecase.dart';
+import 'package:gbblogging/libraries/session/usecase/sign_in.usecase.dart';
+import 'package:gbblogging/libraries/session/usecase/sign_up.usecase.dart';
 
 class LoginModule extends ChildModule {
   List<Bind> viewmodels = [

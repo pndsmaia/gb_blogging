@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gbblogging/libraries/firebase/firebase.auth.dart';
 import 'package:gbblogging/libraries/firebase/firebase.network.dart';
-import 'package:gbblogging/libraries/sessao/data/session.interface.repository.dart';
-import 'package:gbblogging/libraries/sessao/model/user.model.dart';
+import 'package:gbblogging/libraries/session/data/session.interface.repository.dart';
+import 'package:gbblogging/libraries/session/model/user.model.dart';
 
 class SessionRepository implements ISessionRepository {
   @override
@@ -47,13 +47,11 @@ class SessionRepository implements ISessionRepository {
 
   Future<UserModel> get getUser async {
     User localUser = getLocalUser;
-    UserModel user;
-    UserModel.fromMap(
-      await FbNetwork.getDocument(
-        collectionName: 'users',
-        docId: '${localUser.uid}',
-      ),
+    Map<String, dynamic> userAux = await FbNetwork.getDocument(
+      collectionName: 'users',
+      docId: '${localUser.uid}',
     );
+    UserModel user = UserModel.fromMap(userAux);
     return user;
   }
 

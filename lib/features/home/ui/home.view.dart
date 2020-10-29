@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gbblogging/features/home/ui/home.viewmodel.dart';
+import 'package:gbblogging/features/home/ui/tabs/boticommunity/boti_community.view.dart';
 import 'package:gbblogging/features/home/ui/tabs/botinews/botinews.view.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
+import 'package:gbblogging/libraries/common/widgets/add_edit_news_modal.widget.dart';
 import 'package:gbblogging/libraries/intl_helper/intl_helper.extension.dart';
 import 'package:gbblogging/libraries/media_query/media_query_tools.dart';
 
@@ -14,6 +16,9 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final HomeViewModel _viewModel = Modular.get();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _newsController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -36,6 +41,19 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: primaryColor[500],
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (_) {
+                return _addNews(
+                    mediaQuery: mediaQuery,
+                    title: IntlHelper.i18n(key: 'ADD_NEWS'));
+              });
+        },
       ),
     );
   }
@@ -105,12 +123,32 @@ class _HomeViewState extends State<HomeView> {
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: mediaQuery.width(16)),
-            child: Container(
-              color: Colors.red,
-            ),
+            child: BotiCommunityView(),
           ),
         ]),
       ),
+    );
+  }
+
+  Widget _addNews(
+      {@required MediaQueryTools mediaQuery, @required String title}) {
+    return SimpleDialog(
+      contentPadding: EdgeInsets.symmetric(
+          horizontal: mediaQuery.width(16), vertical: mediaQuery.height(16)),
+      children: [
+        AddEditNewsModalBoti(
+          formKey: _formKey,
+          newsController: _newsController,
+          title: IntlHelper.i18n(key: 'ADD_NEWS'),
+          onPressed: () async {
+            if (_formKey.currentState.validate()) {
+              await _viewModel.addNews(_newsController.text);
+              _newsController.text = '';
+              Modular.to.pop();
+            }
+          },
+        )
+      ],
     );
   }
 }

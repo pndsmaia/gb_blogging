@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gbblogging/libraries/common/usecase_interface/usecases.interface.dart';
-import 'package:gbblogging/libraries/sessao/data/session.repository.dart';
+import 'package:gbblogging/libraries/session/data/session.repository.dart';
 
 class SignInUsecase
     implements IRequestResultUsecase<Map<String, String>, void> {
@@ -13,9 +13,9 @@ class SignInUsecase
           null) return true;
       return false;
     } catch (e) {
-      print('ERROR TO SIGN IN OR REGISTER');
+      print('ERROR TO SIGN IN OR REGISTER:\n$e');
+      throw (e);
     }
-    return false;
   }
 
   @override

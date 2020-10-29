@@ -10,6 +10,9 @@ class CardWidgetBoti extends StatefulWidget {
   final String descriptionText;
   final String userName;
   final DateTime date;
+  final bool dropdown;
+  final List<DropdownMenuItem<String>> dropdownItems;
+  final Function(String value) onChanged;
 
   const CardWidgetBoti({
     Key key,
@@ -17,6 +20,9 @@ class CardWidgetBoti extends StatefulWidget {
     @required this.descriptionText,
     @required this.userName,
     @required this.date,
+    this.dropdown = false,
+    this.dropdownItems,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -73,7 +79,9 @@ class _CardWidgetBotiState extends State<CardWidgetBoti> {
               _userName(mediaQuery, name: widget.userName),
               _datePost(mediaQuery, date: widget.date),
             ],
-          )
+          ),
+          Spacer(),
+          if (widget.dropdown) _dropdownButton(mediaQuery),
         ],
       ),
     );
@@ -138,6 +146,18 @@ class _CardWidgetBotiState extends State<CardWidgetBoti> {
           fontSize: mediaQuery.textScale * 14,
         ),
       )),
+    );
+  }
+
+  Widget _dropdownButton(MediaQueryTools mediaQuery) {
+    return DropdownButton(
+      icon: Icon(
+        Icons.more_vert,
+        color: primaryColor[100],
+      ),
+      underline: Text(''),
+      items: widget.dropdownItems,
+      onChanged: widget.onChanged,
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:gbblogging/features/home/model/message.model.dart';
-import 'package:gbblogging/libraries/sessao/model/user.model.dart';
+import 'package:gbblogging/libraries/session/model/user.model.dart';
 
 class NewsModel {
   NewsModel({

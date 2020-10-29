@@ -1,16 +1,26 @@
 {
+    "ADD_NEWS": "Add News",
     "BOTI_NEWS": "Boti News",
     "BOTI_COMMUNITY": "Community",
+    "DELETE": "Delete",
     "DEV_EMAIL": "philipensmaia@gmail.com",
     "DEV_NAME": "Philipe Maia",
+    "EDIT": "Edit",
+    "EDIT_NEWS": "Edit News",
     "EMAIL": "Email",
     "EMAIL_ERROR": "Please, fill with a valid email.",
+    "ERROR": "Error",
     "FIELD_ERROR": "Please, fill the field",
+    "GENERIC_ERROR": "Verify your conection, or contact the developer.",
     "NAME": "Name",
     "PASSWORD": "Password",
     "PASSWORD_ERROR": "Please, fill with a valid password.",
+    "PASSWORD_INVALID": "User or password is invalid!",
     "REGISTER": "Register",
     "RE_PASSWORD": "Repeat Password",
+    "SAVE": "Salvar",
     "SIGN_IN": "Sign in",
-    "SIGN_UP": "Do you have a account? Register Now!"
+    "SIGN_UP": "Do you have a account? Register Now!",
+    "WRITE_NEWS": "Write the news",
+    "WRITE_NEWS_ERROR": "Write a text!"
 }

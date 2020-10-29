@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 
-class TextFormFieldBoti extends StatefulWidget {
+class TextFormFieldWhiteBGBoti extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
   final TextInputType keyboardType;
@@ -20,7 +20,7 @@ class TextFormFieldBoti extends StatefulWidget {
 
   final List<TextInputFormatter> inputFormatters;
 
-  TextFormFieldBoti({
+  TextFormFieldWhiteBGBoti({
     Key key,
     @required this.controller,
     @required this.labelText,
@@ -40,10 +40,11 @@ class TextFormFieldBoti extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TextFormFieldBotiState createState() => _TextFormFieldBotiState();
+  _TextFormFieldWhiteBGBotiState createState() =>
+      _TextFormFieldWhiteBGBotiState();
 }
 
-class _TextFormFieldBotiState extends State<TextFormFieldBoti> {
+class _TextFormFieldWhiteBGBotiState extends State<TextFormFieldWhiteBGBoti> {
   FocusNode _focusNode;
   bool _obscureText;
 
@@ -79,28 +80,29 @@ class _TextFormFieldBotiState extends State<TextFormFieldBoti> {
       onTap: widget.onTap,
       onChanged: widget.onChanged,
       readOnly: widget.readOnly,
-      maxLines: widget.obscureText ? 1: widget.maxLines,
+      maxLines: widget.maxLines,
       style: TextStyle(
-        color: _focusNode.hasFocus ? primaryColor[100] : primaryColor[200],
+        color: _focusNode.hasFocus ? primaryColor[500] : primaryColor[200],
       ),
       keyboardType: widget.keyboardType,
       obscureText: _obscureText,
-      cursorColor: primaryColor[100],
+      cursorColor: primaryColor[500],
+      
       decoration: InputDecoration(
-        errorStyle: TextStyle(color: secondaryColor[200]),
+        errorStyle: TextStyle(color: secondaryColor[400]),
         prefixStyle: TextStyle(
           color: primaryColor[200],
         ),
         labelText: widget.labelText,
         labelStyle: TextStyle(
-          color: _focusNode.hasFocus ? primaryColor[100] : primaryColor[200],
+          color: _focusNode.hasFocus ? primaryColor[500] : primaryColor[200],
         ),
         prefixIcon: widget.prefixIcon == null
             ? null
             : Icon(
                 widget.prefixIcon,
                 color:
-                    _focusNode.hasFocus ? primaryColor[100] : primaryColor[200],
+                    _focusNode.hasFocus ? primaryColor[500] : primaryColor[200],
               ),
         suffixIcon: widget.suffixIcon ??
             (widget.obscureText == false
@@ -110,7 +112,7 @@ class _TextFormFieldBotiState extends State<TextFormFieldBoti> {
                     child: Icon(
                       _obscureText ? Icons.visibility : Icons.visibility_off,
                       color: _focusNode.hasFocus
-                          ? primaryColor[100]
+                          ? primaryColor[500]
                           : primaryColor[200],
                     ),
                   )),
@@ -121,7 +123,7 @@ class _TextFormFieldBotiState extends State<TextFormFieldBoti> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: primaryColor[100]),
+          borderSide: BorderSide(color: primaryColor[500]),
           borderRadius: BorderRadius.circular(16.0),
         ),
       ),

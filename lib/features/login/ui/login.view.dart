@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gbblogging/features/login/ui/login.viewmodel.dart';
 import 'package:gbblogging/libraries/common/colors.dart';
 import 'package:gbblogging/libraries/common/constants.dart';
+import 'package:gbblogging/libraries/common/widgets/error_dialog.widget.dart';
 import 'package:gbblogging/libraries/common/widgets/flat_button.widget.dart';
 import 'package:gbblogging/libraries/common/widgets/raised_button.widget.dart';
 import 'package:gbblogging/libraries/common/widgets/text_field.widget.dart';
@@ -95,11 +96,29 @@ class _LoginViewState extends State<LoginView> {
         label: IntlHelper.i18n(key: 'SIGN_IN'),
         onPressed: () async {
           if (_formKey.currentState.validate()) {
-            if (await _viewmodel.signIn(
-              email: _emailController.text,
-              password: _passwordController.text,
-            )) {
-              Modular.to.pushReplacementNamed('/login/home');
+            try {
+              if (await _viewmodel.signIn(
+                email: _emailController.text,
+                password: _passwordController.text,
+              )) {
+                Modular.to.pushReplacementNamed('/login/home');
+              }
+            } catch (e) {
+              showDialog(
+                  context: context,
+                  builder: (_) {
+                    switch (e.toString()) {
+                      case 'password is invalid':
+                        return ErrorDialogBoti(
+                          errorText: IntlHelper.i18n(key: 'PASSWORD_INVALID'),
+                        );
+                        break;
+                      default:
+                      return ErrorDialogBoti(
+                          errorText: IntlHelper.i18n(key: 'GENERIC_ERROR'),
+                        );
+                    }
+                  });
             }
           }
         },

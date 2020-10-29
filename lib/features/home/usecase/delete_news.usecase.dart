@@ -1,0 +1,20 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gbblogging/features/home/data/news.repository.dart';
+import 'package:gbblogging/features/home/model/news.model.dart';
+import 'package:gbblogging/libraries/common/usecase_interface/usecases.interface.dart';
+
+class DeleteNewsUsecase implements IRequestResultUsecase<NewsModel, void> {
+  NewsRepository _newsRepository = Modular.get();
+
+  @override
+  Future<void> execute(NewsModel news) async {
+    try {
+      await _newsRepository.deleteNews(news);
+    } catch (e) {
+      print('ERROR TO DELETE NEWS IN FB CLOUD FIRESTORE:\n$e');
+    }
+  }
+
+  @override
+  void dispose() {}
+}

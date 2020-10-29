@@ -15,10 +15,10 @@ class FbAuth {
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
       }
-      return null;
+      throw (e);
     } catch (e) {
       print('ERROR TO REGISTER USER IN FIREBASE: \n$e');
-      return null;
+      throw (e);
     }
   }
 
@@ -33,7 +33,7 @@ class FbAuth {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
-      return null;
+      throw (e);
     }
   }
 }

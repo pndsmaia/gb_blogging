@@ -5,8 +5,8 @@ import 'package:gbblogging/app/app.widget.dart';
 import 'package:gbblogging/app/ui/splash/splash.view.dart';
 import 'package:gbblogging/features/home/modules/home.module.dart';
 import 'package:gbblogging/features/login/modules/login.module.dart';
-import 'package:gbblogging/libraries/sessao/data/session.repository.dart';
-import 'package:gbblogging/libraries/sessao/usecase/get_local_user.usecase.dart';
+import 'package:gbblogging/libraries/session/data/session.repository.dart';
+import 'package:gbblogging/libraries/session/usecase/get_local_user.usecase.dart';
 
 class AppModule extends MainModule {
   List<Bind> viewmodels = [

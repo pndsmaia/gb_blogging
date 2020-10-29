@@ -1,16 +1,26 @@
 {
+    "ADD_NEWS": "Adicionar Notícia",
     "BOTI_NEWS": "Boti news",
     "BOTI_COMMUNITY": "Comunidade",
+    "DELETE": "Deletar",
     "DEV_EMAIL": "philipensmaia@gmail.com",
     "DEV_NAME": "Philipe Maia",
+    "EDIT": "Editar",
+    "EDIT_NEWS": "Editar Notícias",
     "EMAIL": "Email",
     "EMAIL_ERROR": "Por favor, preencha o campo com um email válido.",
+    "ERROR": "Erro",
     "FIELD_ERROR": "Por favor, preencha o campo",
+    "GENERIC_ERROR": "Verifique sua conexão com internet, ou entre em contato com o desenvolvedor.",
     "NAME": "Nome",
     "PASSWORD": "Senha",
     "PASSWORD_ERROR": "Por favor, preencha o campo com uma senha válida.",
+    "PASSWORD_INVALID": "Seu usuário ou senha está incorreta!",
     "REGISTER": "Cadastro",
     "RE_PASSWORD": "Repita a senha",
+    "SAVE": "Salvar",
     "SIGN_IN": "Entrar",
-    "SIGN_UP": "Já possui cadastro? Cadastre Agora!"
+    "SIGN_UP": "Já possui cadastro? Cadastre Agora!",
+    "WRITE_NEWS": "Digite o texto",
+    "WRITE_NEWS_ERROR": "Digite um texto!"
 }
